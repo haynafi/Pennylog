@@ -73,7 +73,7 @@ export function SettingsModal({ open, onOpenChange, settings, onSave, onClearDat
         <DialogContent className="max-w-[600px] max-h-[80vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>Settings</DialogTitle>
-            <DialogDescription>Configure your finance app preferences</DialogDescription>
+            <DialogDescription>Configure your Pennylog preferences</DialogDescription>
           </DialogHeader>
 
           <Tabs defaultValue="general" className="w-full">
@@ -211,7 +211,7 @@ export function SettingsModal({ open, onOpenChange, settings, onSave, onClearDat
                     <h4 className="font-semibold text-destructive mb-1">Clear All Data</h4>
                     <p className="text-sm text-muted-foreground mb-4">
                       This action will permanently delete all your income, expenses, and savings data. This cannot be
-                      undone.
+                      undone. Your current data will only save for 1 year.
                     </p>
                     <Button variant="destructive" size="sm" onClick={() => setShowClearAlert(true)}>
                       Clear All Data
