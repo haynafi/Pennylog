@@ -7,7 +7,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Money Logger',
+  title: 'Pennylog',
   description: 'Money Logger created with love by Haynafi',
   generator: 'v0.app and my brain',
   icons: {
