@@ -73,7 +73,7 @@ export function SettingsModal({ open, onOpenChange, settings, onSave, onClearDat
         <DialogContent className="max-w-[600px] max-h-[80vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>Settings</DialogTitle>
-            <DialogDescription>Configure your Pennylog preferences</DialogDescription>
+            <DialogDescription>Configure your pennylog preferences</DialogDescription>
           </DialogHeader>
 
           <Tabs defaultValue="general" className="w-full">
@@ -134,6 +134,40 @@ export function SettingsModal({ open, onOpenChange, settings, onSave, onClearDat
                   </SelectContent>
                 </Select>
               </div>
+
+              {localSettings.expenseFrequency === "daily" && (
+                <div className="space-y-2">
+                  <Label htmlFor="dailyBudget">Daily Budget (Leave 0 to disable)</Label>
+                  <Input
+                    id="dailyBudget"
+                    type="number"
+                    placeholder="0"
+                    value={localSettings.dailyBudget}
+                    onChange={(e) =>
+                      setLocalSettings((prev) => ({ ...prev, dailyBudget: Number.parseFloat(e.target.value) || 0 }))
+                    }
+                    step="1000"
+                    min="0"
+                  />
+                </div>
+              )}
+
+              {localSettings.expenseFrequency === "monthly" && (
+                <div className="space-y-2">
+                  <Label htmlFor="monthlyBudget">Monthly Budget (Leave 0 to disable)</Label>
+                  <Input
+                    id="monthlyBudget"
+                    type="number"
+                    placeholder="0"
+                    value={localSettings.monthlyBudget}
+                    onChange={(e) =>
+                      setLocalSettings((prev) => ({ ...prev, monthlyBudget: Number.parseFloat(e.target.value) || 0 }))
+                    }
+                    step="1000"
+                    min="0"
+                  />
+                </div>
+              )}
             </TabsContent>
 
             {/* Categories Tab */}
@@ -211,7 +245,7 @@ export function SettingsModal({ open, onOpenChange, settings, onSave, onClearDat
                     <h4 className="font-semibold text-destructive mb-1">Clear All Data</h4>
                     <p className="text-sm text-muted-foreground mb-4">
                       This action will permanently delete all your income, expenses, and savings data. This cannot be
-                      undone. Your current data will only save for 1 year.
+                      undone.
                     </p>
                     <Button variant="destructive" size="sm" onClick={() => setShowClearAlert(true)}>
                       Clear All Data

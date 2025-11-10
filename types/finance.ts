@@ -36,6 +36,7 @@ export interface Settings {
   expenseFrequency: "daily" | "monthly"
   resetCycle: "weekly" | "monthly"
   resetDate: number
+  monthlyBudget: number
   categories: {
     income: string[]
     expense: string[]
